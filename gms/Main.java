@@ -1,4 +1,4 @@
-package real;
+package gms;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 public class Main {
@@ -58,12 +58,19 @@ public class Main {
 					break;
 				case "2" :
 					String dan = JOptionPane.showInputDialog("단을 입력하세요");
-					calc.gugudan(Integer.parseInt(dan));
+					JOptionPane.showMessageDialog(null,String.format("계산결과는 %s 입니다.", calc.gugudan(Integer.parseInt(dan))));
 					break;
 				}
 				break;
 			case "3" :
-				JOptionPane.showInputDialog("");
+				Lotto lotto = new Lotto();
+				String a = lotto.randomNum();
+				JOptionPane.showMessageDialog(null, String.format("로또 번호는 %s 입니다.",a));
+				break;
+			case "4" :
+				String y = JOptionPane.showInputDialog("년도를 입력하세요");
+				Mycalender mycalender = new Mycalender();
+				JOptionPane.showMessageDialog(null, String.format("%s 년은 %s입니다.", y,mycalender.leepYear(Integer.parseInt(y))));
 				break;
 			}
 		}

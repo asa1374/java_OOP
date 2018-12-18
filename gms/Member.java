@@ -1,4 +1,4 @@
-package real;
+package gms;
 public class Member {
 	String name; //멤버변수
 	public String bmi(double t,double w) {

@@ -1,4 +1,4 @@
-package real;
+package gms;
 
 public class Calc {
 	public String plus(int a, int b) {
@@ -37,9 +37,9 @@ public class Calc {
 	public String gugudan(int dan) {
 		String res ="";
 		int sum =0;
-		for(int i=0;i<10;i++) {
-			sum+=dan*i;
-			res += dan*i+sum+"\n";
+		for(int i=1;i<10;i++) {
+			sum=dan*i;
+			res += dan+"*"+i+"="+sum+"\n";
 		}
 		return res;
 	}

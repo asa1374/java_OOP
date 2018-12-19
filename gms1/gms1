@@ -1,0 +1,9 @@
+Member
+[속성]명사 == String hakbun,name,ssn,pass;
+[기능]동사 == 회원정보 보여주기 info()
+
+Subject
+[속성] String subjName,profName;int score;
+[기능] exam() // 시험
+	 today() // 오늘날짜생성
+	 score() // 시험경과 보여주기

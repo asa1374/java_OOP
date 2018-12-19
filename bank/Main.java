@@ -7,7 +7,7 @@ public class Main {
 			Account account = null;
 			Member member = null;
 		while(true) {
-			switch(JOptionPane.showInputDialog("0.종료\n1.회원가입\n2.계좌개설\n3.계좌보기")) {
+			switch(JOptionPane.showInputDialog("0.종료\n1.회원가입\n2.계좌개설\n3.계좌보기\n4.입금하기\n5.출금하기\n6.잔액확인")) {
 			case "0" : 
 				JOptionPane.showMessageDialog(null, String.format("종료..."));
 				return;
@@ -26,6 +26,24 @@ public class Main {
 			case "3" :
 				String res = account.open(member.name);
 				JOptionPane.showMessageDialog(null,res);
+				break;
+			case "4" :
+				String m = JOptionPane.showInputDialog("입금할 금액 입력");
+				account.deposit(Integer.parseInt(m));
+				if(0>Integer.parseInt(m)) {
+					JOptionPane.showMessageDialog(null, account.dont);
+				}
+				break;
+			case "5" :
+				String in = JOptionPane.showInputDialog("출금할 금액입력");
+				account.withdraw(Integer.parseInt(in));
+				if(account.money<Integer.parseInt(in)) {
+					JOptionPane.showMessageDialog(null, account.dont);
+				}
+				break;
+			case "6" :
+				String bal = account.balance(member.name);
+				JOptionPane.showMessageDialog(null,bal);
 				break;
 			}
 		}

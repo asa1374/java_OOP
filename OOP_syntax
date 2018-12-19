@@ -26,15 +26,20 @@ class, and how to declare fields, methods, and constructors
  OOP
  객체지향프로그래밍은 상추다.
  
+ 메소드의 선언구조
  
+public String test(String a){
+접근제한+리턴타입 + ID + (파라미터) + {에어리어}  >>>>>>>메소드의 구조
+	a
+} --> a는 파라미터
+ m.test(a); --> a는 아규먼트
  
+ 리턴타입
  
- 
- 
- 
- 
- 
- 
- 
- 
+결과가 없으면 void
+결과가 있으면 String,int,...,Member
+
+리턴이 없는 경우와 있는경우
+리턴타입이 void 인 경우와 아닌경우.
+누가 판단합니까?  == 문법x 개발자가 판단. 
  

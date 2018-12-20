@@ -1,4 +1,4 @@
-package bank;
+package bank01;
 
 import javax.swing.JOptionPane;
 
@@ -29,17 +29,14 @@ public class Main {
 				break;
 			case "4" :
 				String m = JOptionPane.showInputDialog("입금할 금액 입력");
-				account.deposit(Integer.parseInt(m));
-				if(0>Integer.parseInt(m)) {
-					JOptionPane.showMessageDialog(null, account.dont);
-				}
+				String message = account.deposit(Integer.parseInt(m));
+				JOptionPane.showMessageDialog(null, message);
 				break;
 			case "5" :
 				String in = JOptionPane.showInputDialog("출금할 금액입력");
-				account.withdraw(Integer.parseInt(in));
-				if(account.money<Integer.parseInt(in)) {
-					JOptionPane.showMessageDialog(null, account.dont);
-				}
+				String message1 = account.withdraw(Integer.parseInt(in));
+				JOptionPane.showMessageDialog(null, message1);
+				
 				break;
 			case "6" :
 				String bal = account.balance(member.name);

@@ -1,4 +1,4 @@
-package gms1;
+package gms01;
 
 import javax.swing.JOptionPane;
 

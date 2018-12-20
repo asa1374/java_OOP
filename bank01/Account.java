@@ -1,4 +1,4 @@
-package bank;
+package bank01;
 import java.text.SimpleDateFormat;
 /**
  * 계좌클래스 
@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Random;
 public class Account {
 	final static String BANK_NAME ="국민은행";   //상수
-	String accountNum,today,dont;
+	String accountNum,today;
 	int money;
 	
 	Account(int money){
@@ -31,21 +31,26 @@ public class Account {
 		today = sdf.format(date);
 		return today;
 	}
-	public void deposit(int m) {
+	public String deposit(int m) {
+		String message = "";
 		if(m>0) {
-			money += m ;
+			this.money += m ;
+			message = "거래완료";
 		}else {
-			this.dont = "입금이 안됩니다.";
+			message = "입금이 안됩니다.";
 		}
+		return message;
 		
 	}
-	public void withdraw(int in) {
+	public String withdraw(int in) {
+		String message = "";
 		if(this.money>=in) {
-			money -= in;
+			this.money -= in;
+			message = "거래완료";
 		}else {
-			this.dont = "출금이 안됩니다.";
+			message = "출금이 안됩니다.";
 		}
-		
+		return message;
 	}
 	public String balance(String name) {
 		return String.format("%s님의 계좌번호 %s\n잔액은 %s입니다.", name,accountNum,money);

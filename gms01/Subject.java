@@ -1,4 +1,4 @@
-package gms1;
+package gms01;
 
 public class Subject {
 	String subjName,profName;

@@ -1,4 +1,4 @@
-package gms1;
+package gms01;
 
 public class Student {
 	String hakbun,name,ssn,pass;

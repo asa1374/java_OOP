@@ -1,5 +1,5 @@
 package car;
 
-public class CarService {
-
+public interface CarService {
+	public CarBean join(String color, String gearType,int door);
 }

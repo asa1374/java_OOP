@@ -1,5 +1,5 @@
 package card;
 
-public class CardService {
-
+public interface CardService {
+	public CardBean join(String kind,int number);
 }

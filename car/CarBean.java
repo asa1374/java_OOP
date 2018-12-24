@@ -1,8 +1,14 @@
 package car;
 
 public class CarBean {
-	private String color,gearType;
+	private String brand,color,gearType;
 	private int door;
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	public String getBrand() {
+		return brand;
+	}
 	public void setColor(String color) {
 		this.color = color;
 	}
@@ -23,6 +29,6 @@ public class CarBean {
 	}
 	@Override
 	public String toString() {
-		return String.format("color : %s\ngearType :%s\ndoor :%d\n", color,gearType,door);
+		return String.format("Brand :%s\n Color : %s\nGearType :%s\nDoor :%d\n",brand,color,gearType,door);
 	}
 }

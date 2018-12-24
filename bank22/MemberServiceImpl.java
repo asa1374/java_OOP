@@ -1,37 +1,39 @@
-package bank31;
+package bank22;
 
 public class MemberServiceImpl implements MemberService{
 	private MemberBean[] members;
 	private int count;
 	MemberServiceImpl(){
 		members = new MemberBean[10];
+		count = 0;
 	}
 	@Override
-	public void join(String id, String name, String ssn, String pass) {
+	public void join(String id, String pass, String name, String ssn) {
 		MemberBean member = new MemberBean();
 		member.setId(id);
 		member.setName(name);
-		member.setSsn(ssn);
 		member.setPass(pass);
-		members[count] = member;
-		count++;
+		member.setSsn(ssn);
+		members[count] =member;
+		count ++;
 	}
+
 	@Override
 	public MemberBean[] list() {
 		return members;
 	}
-
+	
 	@Override
 	public MemberBean find(String id) {
-		MemberBean member = new MemberBean();
+		MemberBean bean = new MemberBean();
 		for(int i=0;i<count;i++) {
 			if(members[i].getId().equals(id)) {
-				member = members[i];
-				break;
+				bean = members[i];
 			}
 		}
-		return member;
+		return bean;
 	}
+	
 	@Override
 	public boolean login(String id, String pw) {
 		boolean ok = false;
@@ -43,20 +45,37 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return ok;
 	}
+	
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+		return count;
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
+	public void update(String id, String pw, String newpw) {
+		for(int i=0;i<count;i++) {
+			if(this.login(id, pw)) {
+				members[i].setPass(newpw);
+				break;
+			}
+		}
 	}
-	
+
+	@Override
+	public void delete(String id,String pw) {
+		for(int i=0;i<count;i++) {
+			if(this.login(id, pw)) {
+				members[i] = members[count];
+				members[count] = null;
+				count--;
+				break;
+			}
+		}
+		/*for(int i=0;i<count;i++) {
+			if(members[i].equals(null)) {
+				members[i] = members[i+1];
+			}
+		}*/
+	}
+
 }

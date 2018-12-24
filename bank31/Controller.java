@@ -11,12 +11,12 @@ public class Controller {
 			MemberService memberService = new MemberServiceImpl();
 		while(true) {
 			switch(JOptionPane.showInputDialog("0.종료\n1.회원가입\n2.회원정보\n3.계좌개설\n4.계좌보기\n5.입금하기\n"
-					+ "6.출금하기\n7.잔액확인\n8.비번변경\n")) {
+					+ "6.출금하기\n7.잔액확인\n8.비번변경\n9.회원목록보기\n10.회원 찾기\n11.로그인")) {
 			case "0" : 
 				JOptionPane.showMessageDialog(null, String.format("종료..."));
 				return;
 			case "1" :
-				member = memberService.join(JOptionPane.showInputDialog("ID등록"),
+				memberService.join(JOptionPane.showInputDialog("ID등록"),
 						JOptionPane.showInputDialog("이름 등록"),
 						JOptionPane.showInputDialog("주민번호 등록"),
 						JOptionPane.showInputDialog("비번등록"));
@@ -52,6 +52,25 @@ public class Controller {
 			case "8" :
 				String changePass = JOptionPane.showInputDialog("바꾸실 비번 입력");
 				member.setPass(changePass);
+				break;
+			case "9" :
+				MemberBean[] members = memberService.list();
+				JOptionPane.showMessageDialog(null,members);
+				break;
+			case "10" :
+				JOptionPane.showMessageDialog(null,memberService.find(JOptionPane.showInputDialog("아이디 입력해주세요")));
+				break;
+			case "11" :
+				String id = JOptionPane.showInputDialog("로그인 ID");
+				String pw = JOptionPane.showInputDialog("로그인 pw");
+				
+				if(memberService.login(id, pw)) {
+					JOptionPane.showMessageDialog(null, "로그인 성공");
+				}else {
+					JOptionPane.showMessageDialog(null, "로그인 실패");
+				}
+				
+				// 3항연산자  JOptionPane.showMessageDialog(null,(memberService.login(id, pw)) ? "로그인성공" : "로그인 실패" ); 
 				break;
 			}
 		}

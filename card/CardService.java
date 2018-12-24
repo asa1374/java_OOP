@@ -1,5 +1,5 @@
 package card;
 
 public interface CardService {
-	public CardBean join(String kind,int number);
+	public CardBean bet(String kind,int number);
 }
